@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/soho-light/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  font-family: "Nunito", sans-serif;
+  background-color: #fafafa;
+  color: #2b2e4a;
+}
+
+a {
+  text-decoration: none;
+  color: #2b2e4a;
+}
