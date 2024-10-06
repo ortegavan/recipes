@@ -31,8 +31,33 @@ describe('RecipeService', () => {
 
   it('deve retornar uma lista de receitas (GET)', () => {
     const mockRecipes = [
-      { id: 1, name: 'Torta de Maçã' },
-      { id: 2, name: 'Bolo de Cenoura' },
+      {
+        id: 1,
+        name: 'Espaguete com Tomatinhos Cereja e Manjericão',
+        description:
+          'Uma receita simples e deliciosa de espaguete com tomatinhos cereja frescos e manjericão.',
+        categoryIds: [1],
+        imagePath:
+          'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg',
+        ingredients: [
+          '200g de espaguete',
+          '300g de tomatinhos cereja cortados ao meio',
+          '2 dentes de alho picados',
+          '3 colheres de sopa de azeite de oliva',
+          '1/2 xícara de folhas de manjericão fresco',
+          'Sal e pimenta a gosto',
+          'Queijo parmesão ralado a gosto',
+        ],
+        instructions: [
+          'Cozinhe o espaguete em água salgada conforme as instruções da embalagem até ficar al dente.',
+          'Enquanto isso, aqueça o azeite em uma frigideira grande e refogue o alho até dourar levemente.',
+          'Adicione os tomatinhos cereja e cozinhe por cerca de 5 minutos, até começarem a amolecer.',
+          'Tempere com sal e pimenta a gosto.',
+          'Escorra o espaguete e adicione à frigideira com os tomates.',
+          'Misture bem, adicione o manjericão e mexa rapidamente.',
+          'Sirva com queijo parmesão ralado por cima.',
+        ],
+      },
     ];
 
     // Chama o método do serviço que faz a requisição
