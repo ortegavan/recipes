@@ -9,5 +9,5 @@ import { HeaderComponent } from './shared/ui/header/header.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'recipes';
+  title = 'My Recipe Book';
 }
