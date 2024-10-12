@@ -1,0 +1,11 @@
+.recipes {
+  width: 100%;
+  padding: var(--space) 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+app-recipe-card {
+  flex-basis: 32%;
+}

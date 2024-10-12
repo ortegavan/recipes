@@ -1,11 +1,19 @@
-@import "primeng/resources/themes/soho-light/theme.css";
+@import "primeng/resources/themes/lara-light-teal/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
-html,
-body {
+* {
   margin: 0;
-  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  --space: 32px;
+  --margin: 160px;
+  --brand: #05c46b;
+  --text: #052a75;
+  --background: #f4f4f4;
+  --brightness: 0.9;
 }
 
 .container {
@@ -15,16 +23,45 @@ body {
 }
 
 body,
-h1,
-h2,
-h3,
-p {
+input,
+button {
   font-family: "Nunito", sans-serif;
-  background-color: #fafafa;
-  color: #2b2e4a;
+  font-size: 14px;
+  color: var(--text);
+}
+
+h1 {
+  font-size: 2.5rem;
 }
 
 a {
+  color: var(--text);
   text-decoration: none;
-  color: #2b2e4a;
+}
+
+a:hover {
+  color: var(--brand);
+}
+
+small {
+  display: block;
+  margin: 12px 0;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.center {
+  text-align: center;
+}
+
+.primary-button {
+  color: var(--background);
+  background-color: var(--brand);
+  border: none;
+}
+
+.primary-button:hover {
+  filter: brightness(var(--brightness));
 }
