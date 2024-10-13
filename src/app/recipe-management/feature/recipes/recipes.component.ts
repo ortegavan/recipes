@@ -15,6 +15,6 @@ export class RecipesComponent {
   recipeService = inject(RecipeService);
   categoryService = inject(CategoryService);
 
-  recipes = this.recipeService.get();
-  categories = this.categoryService.get();
+  recipes$ = this.recipeService.get();
+  categories$ = this.categoryService.get();
 }
