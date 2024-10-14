@@ -57,6 +57,7 @@ describe('RecipeService', () => {
           'Misture bem, adicione o manjericão e mexa rapidamente.',
           'Sirva com queijo parmesão ralado por cima.',
         ],
+        new: true,
       },
     ];
 
