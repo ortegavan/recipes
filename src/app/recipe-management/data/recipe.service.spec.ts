@@ -36,7 +36,7 @@ describe('RecipeService', () => {
         name: 'Espaguete com Tomatinhos Cereja e Manjericão',
         description:
           'Uma receita simples e deliciosa de espaguete com tomatinhos cereja frescos e manjericão.',
-        categoryIds: [1],
+        categoryIds: ['1'],
         imagePath:
           'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg',
         ingredients: [
