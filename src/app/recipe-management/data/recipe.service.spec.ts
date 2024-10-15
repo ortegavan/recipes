@@ -32,7 +32,7 @@ describe('RecipeService', () => {
   it('deve retornar uma lista de receitas (GET)', () => {
     const mockRecipes = [
       {
-        id: 1,
+        id: '1',
         name: 'Espaguete com Tomatinhos Cereja e Manjericão',
         description:
           'Uma receita simples e deliciosa de espaguete com tomatinhos cereja frescos e manjericão.',
