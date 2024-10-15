@@ -1,5 +1,5 @@
 export type Recipe = {
-  id: number;
+  id: string;
   name: string;
   description: string;
   categoryIds: number[];
