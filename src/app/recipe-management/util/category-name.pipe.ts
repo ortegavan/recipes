@@ -6,7 +6,7 @@ import { Category } from '../data/category.model';
   standalone: true,
 })
 export class CategoryNamePipe implements PipeTransform {
-  transform(ids: number[], categories: Category[]): string {
+  transform(ids: string[], categories: Category[]): string {
     return ids
       .map((id) => categories.find((category) => category.id === id)?.name)
       .filter((name) => name !== undefined)
