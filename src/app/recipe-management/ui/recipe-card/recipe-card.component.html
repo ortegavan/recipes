@@ -1,4 +1,4 @@
-<section class="recipe">
+<section class="recipe" (click)="clickEvent.emit(recipe.id)">
   <div>
     <img [src]="recipe.imagePath" [alt]="recipe.name" />
   </div>
