@@ -1,0 +1,17 @@
+header {
+    padding: 32px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    gap: 32px;
+}
+
+h1 {
+    font-family: 'Borel', cursive;
+    font-size: 1.3rem;
+    font-weight: normal;
+}
