@@ -1,0 +1,10 @@
+<section class="recipe">
+    <div>
+        <img [src]="recipe.imagePath" [alt]="recipe.name" />
+    </div>
+    <div>
+        <small> {{ recipe.categoryIds | categoryName: categories }} </small>
+        <h3>{{ recipe.name }}</h3>
+        <p>{{ recipe.description }}</p>
+    </div>
+</section>
