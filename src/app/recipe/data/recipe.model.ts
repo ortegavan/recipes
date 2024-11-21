@@ -6,4 +6,5 @@ export type Recipe = {
     imagePath: string;
     ingredients: string[];
     instructions: string[];
+    new: boolean;
 };
