@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { RecipesComponent } from './recipe/feature/recipes/recipes.component';
+import { HomeComponent } from './recipe/feature/home/home.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', component: RecipesComponent },
+    { path: 'home', component: HomeComponent },
     {
         path: 'receitas/:id',
         loadComponent: () =>

@@ -22,4 +22,15 @@ export class RecipeService {
             `${this.apiBaseUrl}/api/v1/recipes/${id}`,
         );
     }
+
+    public search(search: string): Observable<Recipe[]> {
+        return this.httpClient.get<Recipe[]>(
+            `${this.apiBaseUrl}/api/v1/recipes`,
+            {
+                params: {
+                    search,
+                },
+            },
+        );
+    }
 }
