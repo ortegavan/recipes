@@ -1,0 +1,40 @@
+.summary {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.average {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.details {
+    width: 100%;
+}
+
+.details > div {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 8px;
+}
+
+.total {
+    width: 160px;
+    height: 8px;
+    background-color: #eaeaea;
+    border-radius: 4px;
+}
+
+.entries {
+    height: 100%;
+    background-color: var(--brand);
+    border-radius: 4px;
+}

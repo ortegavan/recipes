@@ -1,0 +1,17 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+form > div:not(:last-child) {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+form > div:last-child {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+}
