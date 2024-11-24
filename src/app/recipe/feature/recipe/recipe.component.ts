@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit, signal } from '@angular/core';
 import { first, Observable } from 'rxjs';
 import { Recipe } from '../../data/recipe.model';
 import { RecipeService } from '../../data/recipe.service';
@@ -10,7 +10,6 @@ import { Comment } from '../../../social/data/comment.model';
 import { RatingFormComponent } from '../../../social/ui/rating-form/rating-form.component';
 import { CommentsComponent } from '../../../social/ui/comments/comments.component';
 import { ReviewComponent } from '../../../social/ui/review/review.component';
-import { Visibility } from '../../../shared/data/visibility.model';
 
 @Component({
     selector: 'app-recipe',
@@ -32,17 +31,16 @@ export class RecipeComponent implements OnInit {
     fb = inject(FormBuilder);
 
     recipe$!: Observable<Recipe>;
-    comments$!: Observable<Comment[]>;
+    comments = this.commentService.comments;
 
     ratingForm = this.fb.group({
         rating: ['', Validators.required],
         comment: ['', Validators.required],
     });
-    showRatingForm: Visibility = { visible: false };
+    showRatingForm = signal<boolean>(false);
 
     ngOnInit() {
         this.recipe$ = this.recipeService.getById(this.id);
-        this.comments$ = this.commentService.comments$;
         this.commentService.get(this.id).pipe(first()).subscribe();
     }
 
@@ -65,10 +63,10 @@ export class RecipeComponent implements OnInit {
     }
 
     openRatingForm() {
-        this.showRatingForm = { visible: true };
+        this.showRatingForm.set(true);
     }
 
     closeRatingForm() {
-        this.showRatingForm = { visible: false };
+        this.showRatingForm.set(false);
     }
 }
