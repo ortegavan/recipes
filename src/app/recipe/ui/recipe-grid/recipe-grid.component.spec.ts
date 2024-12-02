@@ -1,23 +1,31 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RecipeGridComponent } from './recipe-grid.component';
+import { mockRecipes } from '../../data/recipes.mock';
+import { mockCategories } from '../../data/categories.mock';
 
 describe('RecipeGridComponent', () => {
-  let component: RecipeGridComponent;
-  let fixture: ComponentFixture<RecipeGridComponent>;
+    let component: RecipeGridComponent;
+    let fixture: ComponentFixture<RecipeGridComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [RecipeGridComponent]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [RecipeGridComponent],
+        }).compileComponents();
 
-    fixture = TestBed.createComponent(RecipeGridComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(RecipeGridComponent);
+        component = fixture.componentInstance;
+        component.recipes = mockRecipes;
+        component.categories = mockCategories;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('deve renderizar a grade de receitas', () => {
+        const recipes = fixture.nativeElement.querySelector('.recipes');
+        expect(recipes).toBeTruthy();
+
+        const recipeCards =
+            fixture.nativeElement.querySelectorAll('app-recipe-card');
+        expect(recipeCards.length).toBe(2);
+    });
 });
