@@ -16,7 +16,7 @@ export const mockComments: Comment[] = [
         recipeId: '1',
         userId: '2',
         userName: 'Bob',
-        rating: 4,
+        rating: 3,
         comment: 'Eu gostei, mas coloquei mais sal.',
     },
 ];
