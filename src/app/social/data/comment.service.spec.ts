@@ -37,6 +37,22 @@ describe('CommentService', () => {
         req.flush(mockComments);
     });
 
+    it('deve retornar um array vazio ao ocorrer erro', () => {
+        const recipeId = '1';
+        spyOn(service.comments, 'set').and.callThrough();
+
+        service.get(recipeId).subscribe((comments) => {
+            expect(comments).toEqual([]);
+        });
+
+        const req = controller.expectOne(
+            `${service.apiBaseUrl}/api/v1/comments?recipeId=${recipeId}`,
+        );
+        req.flush(null, { status: 500, statusText: 'Internal Server Error' });
+
+        expect(service.comments.set).toHaveBeenCalledWith([]);
+    });
+
     it('deve adicionar um novo comentário e atualizar o estado local', (done) => {
         const newComment = {
             id: '3',

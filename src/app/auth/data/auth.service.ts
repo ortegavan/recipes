@@ -32,7 +32,7 @@ export class AuthService {
 
     public getUsername(): string {
         const payload = this.getPayload();
-        return payload ? payload.name : '';
+        return payload.name;
     }
 
     private getPayload(): any {
