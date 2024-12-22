@@ -1,5 +1,5 @@
-<section class="recipe">
-    @if (recipe(); as recipe) {
+@if (recipe(); as recipe) {
+    <section class="recipe" (click)="clickEvent.emit(recipe.id)">
         <div>
             <img [src]="recipe.imagePath" [alt]="recipe.name" />
         </div>
@@ -10,5 +10,5 @@
             <h3 [appNewRecipeBadge]="recipe.new">{{ recipe.name }}</h3>
             <p>{{ recipe.description }}</p>
         </div>
-    }
-</section>
+    </section>
+}

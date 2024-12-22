@@ -1,0 +1,29 @@
+@if (recipe(); as recipe) {
+    <section>
+        <img [src]="recipe.imagePath" [alt]="recipe.name" />
+    </section>
+
+    <section class="center">
+        <h1>{{ recipe.name }}</h1>
+        <small>{{ recipe.description }}</small>
+    </section>
+
+    <section class="container detail">
+        <div>
+            <h2>Ingredientes</h2>
+            <ul>
+                @for (ingredient of recipe.ingredients; track $index) {
+                    <li>{{ ingredient }}</li>
+                }
+            </ul>
+        </div>
+        <div>
+            <h2>Modo de preparo</h2>
+            <ol>
+                @for (step of recipe.instructions; track $index) {
+                    <li>{{ step }}</li>
+                }
+            </ol>
+        </div>
+    </section>
+}
