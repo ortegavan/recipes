@@ -42,3 +42,26 @@ a {
 a:hover {
     color: var(--brand);
 }
+
+small {
+    display: block;
+    margin: 12px 0;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--brand);
+}
+
+.center {
+    text-align: center;
+}
+
+.primary-button {
+    color: var(--background);
+    background-color: var(--brand);
+    border: none;
+}
+
+.primary-button:hover {
+    filter: brightness(var(--brightness));
+}
