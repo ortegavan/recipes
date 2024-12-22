@@ -1,4 +1,5 @@
 <app-recipe-grid
     [recipes]="(recipes$ | async) ?? []"
     [categories]="(categories$ | async) ?? []"
+    (clickEvent)="goToRecipe($event)"
 ></app-recipe-grid>
