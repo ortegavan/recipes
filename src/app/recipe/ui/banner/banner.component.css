@@ -1,0 +1,40 @@
+.banner {
+    background: url('/banner.jpg') no-repeat center center;
+    background-size: cover;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 64px;
+}
+
+.banner h1 {
+    color: #fff;
+}
+
+.search {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+}
+
+.search-result {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #fff;
+    padding: 16px;
+    width: 100%;
+    max-width: 600px;
+    border: solid 1px #eaeaea;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.search-result a:hover {
+    cursor: pointer;
+}
