@@ -1,0 +1,27 @@
+<form [formGroup]="form()" (ngSubmit)="submitEvent.emit()">
+    <h2>Bem-vindo(a) de volta!</h2>
+    <p>Informe seu e-mail e senha para acessar sua conta</p>
+
+    <div>
+        <label for="email">E-mail</label>
+        <input type="email" pInputText formControlName="email" />
+        @if (email?.invalid && email?.touched) {
+            @if (email?.hasError('required')) {
+                <span class="error">Você precisa informar seu e-mail</span>
+            }
+            @if (email?.hasError('email')) {
+                <span class="error">O e-mail informado é inválido</span>
+            }
+        }
+    </div>
+
+    <div>
+        <label for="password">Password</label>
+        <input type="password" pInputText formControlName="password" />
+        @if (password?.touched && password?.hasError('required')) {
+            <span class="error">Você precisa informar sua senha</span>
+        }
+    </div>
+
+    <button pButton type="submit">Login</button>
+</form>

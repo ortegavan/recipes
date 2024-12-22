@@ -1,0 +1,25 @@
+form {
+    width: 100%;
+    max-width: 480px;
+    padding: 32px;
+    margin: 0 auto;
+    margin-top: 80px;
+    border: solid 1px #eaeaea;
+    border-radius: 16px;
+    background-color: #f8f8f8;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    margin: 16px 0;
+}
+
+.ng-touched .ng-invalid {
+    border: solid 2px #f95774;
+}
+
+.error {
+    color: #f95774;
+    font-size: 14px;
+}
