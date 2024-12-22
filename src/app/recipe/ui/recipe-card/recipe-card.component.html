@@ -7,7 +7,7 @@
             <small>
                 {{ recipe.categoryIds | categoryName: categories() }}
             </small>
-            <h3>{{ recipe.name }}</h3>
+            <h3 [appNewRecipeBadge]="recipe.new">{{ recipe.name }}</h3>
             <p>{{ recipe.description }}</p>
         </div>
     }

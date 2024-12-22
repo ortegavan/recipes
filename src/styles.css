@@ -65,3 +65,10 @@ small {
 .primary-button:hover {
     filter: brightness(var(--brightness));
 }
+
+.new-badge {
+    font-size: 0.7em;
+    font-weight: bold;
+    color: var(--brand);
+    vertical-align: super;
+}
