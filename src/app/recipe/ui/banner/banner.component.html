@@ -1,0 +1,25 @@
+<section class="banner">
+    <h1>O que você quer preparar hoje?</h1>
+    <div class="search">
+        <p-inputGroup>
+            <p-inputGroupAddon>
+                <i class="pi pi-search"></i>
+            </p-inputGroupAddon>
+            <input
+                type="text"
+                pInputText
+                placeholder="Procurar receitas ou ingredientes..."
+                [formControl]="searchControl()"
+            />
+        </p-inputGroup>
+        @if (recipes(); as recipes) {
+            <div class="search-result">
+                @for (recipe of recipes; track recipe.id) {
+                    <a (click)="goToRecipeEvent.emit(recipe.id)">
+                        {{ recipe.name }}
+                    </a>
+                }
+            </div>
+        }
+    </div>
+</section>
