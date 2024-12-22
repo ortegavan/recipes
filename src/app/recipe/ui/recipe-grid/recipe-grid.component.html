@@ -1,0 +1,15 @@
+<section class="center">
+    <h1>Mais populares</h1>
+    <small>
+        Testadas e aprovadas: estas são as receitas mais populares da semana.
+    </small>
+</section>
+
+<section class="container recipes">
+    @for (recipe of recipes(); track recipe.id) {
+        <app-recipe-card
+            [recipe]="recipe"
+            [categories]="categories()"
+        ></app-recipe-card>
+    }
+</section>
