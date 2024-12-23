@@ -1,0 +1,28 @@
+<p-dialog
+    header="Avalie esta receita"
+    [modal]="true"
+    [(visible)]="visible"
+    (onHide)="closeEvent.emit()"
+>
+    <form [formGroup]="form()">
+        <div>
+            Com quantas estrelas você avalia esta receita?
+            <p-rating formControlName="rating"></p-rating>
+            @if (rating?.touched && rating?.hasError('required')) {
+                <span class="error">Avalie a receita de 1 a 5 estrelas</span>
+            }
+        </div>
+
+        <div>
+            Deixe seu comentário:
+            <textarea pInputTextarea formControlName="comment"></textarea>
+            @if (comment?.touched && comment?.hasError('required')) {
+                <span class="error">Comente sua nota</span>
+            }
+        </div>
+
+        <div>
+            <p-button label="Avaliar" (onClick)="saveEvent.emit(form())" />
+        </div>
+    </form>
+</p-dialog>
