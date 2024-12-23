@@ -2,21 +2,19 @@
     <app-recipe-detail [recipe]="recipe" />
 }
 
-@if (comments$ | async; as comments) {
-    <section class="container">
-        <h2>Avaliações</h2>
-        <div class="flex">
-            <app-comments [comments]="comments" />
-            <app-review
-                [comments]="comments"
-                (addRatingEvent)="openRatingForm()"
-            />
-        </div>
-    </section>
-}
+<section class="container">
+    <h2>Avaliações</h2>
+    <div class="flex">
+        <app-comments [comments]="comments()" />
+        <app-review
+            [comments]="comments()"
+            (addRatingEvent)="openRatingForm()"
+        />
+    </div>
+</section>
 
 <app-rating-form
-    [visible]="showRatingForm.visible"
+    [visible]="showRatingForm()"
     [form]="ratingForm"
     (saveEvent)="addComment($event)"
     (closeEvent)="closeRatingForm()"
