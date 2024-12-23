@@ -10,7 +10,7 @@
 
 - 📚 **Cadastrar receitas** com ingredientes e instruções detalhadas;
 - 💬 **Curtir e comentar** receitas de outros usuários;
-- ⭐ **Explorar as receitas mais populares**, com base em curtidas e comentários.
+- ❤️ **Explorar as receitas mais populares**, com base em curtidas e comentários.
 
 Esta aplicação foi projetada para estudar e aplicar conceitos e artefatos de **Angular 19** de forma prática e incremental, utilizando os mais recentes features, como:
 
@@ -19,6 +19,8 @@ Esta aplicação foi projetada para estudar e aplicar conceitos e artefatos de *
 - Control flow com @if e @for;
 - TypeScript 5.6;
 - Tudo standalone!
+
+Se você gostou desde repositório, clique na estrela! ⭐
 
 ## 🚀 Configuração do projeto
 
