@@ -1,0 +1,31 @@
+.comment,
+.name,
+.details {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.comment {
+    margin-bottom: 32px;
+}
+
+.details {
+    flex-direction: column;
+}
+
+.first-letter {
+    font-size: 1.6rem;
+    background-color: #f8f8f8;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.date {
+    font-size: 0.8rem;
+    color: #999;
+}

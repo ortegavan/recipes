@@ -1,0 +1,29 @@
+@if (comments(); as comments) {
+    <div class="summary">
+        <div class="average">
+            <p-rating [readonly]="true" [(ngModel)]="rating" />
+            <span>{{ rating.toFixed(2) }}</span>
+        </div>
+        <div class="details">
+            @for (item of entries; track $index) {
+                <div>
+                    <span>{{ item[0] }}</span>
+                    <div class="total">
+                        <div
+                            class="entries"
+                            [style.width]="
+                                comments.length > 0
+                                    ? (item[1] * 100) / comments.length + '%'
+                                    : '0%'
+                            "
+                        ></div>
+                    </div>
+                    <span>{{ item[1] }}</span>
+                </div>
+            }
+        </div>
+        <button pButton (click)="addRatingEvent.emit()">
+            Escreva sua avaliação
+        </button>
+    </div>
+}

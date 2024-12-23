@@ -1,0 +1,21 @@
+@for (comment of comments(); track comment.id) {
+    <div class="comment">
+        <div class="first-letter">
+            {{ comment.userName | firstLetter }}
+        </div>
+        <div class="details">
+            <div class="name">
+                <b>{{ comment.userName }}</b>
+                <span class="date">
+                    {{ comment.createdAt | date: 'dd/MM/yyyy' }}
+                </span>
+            </div>
+            <p-rating [readonly]="true" [(ngModel)]="comment.rating" />
+            <p>
+                {{ comment.comment }}
+            </p>
+        </div>
+    </div>
+} @empty {
+    <p>Não há comentários.</p>
+}
