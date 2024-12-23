@@ -55,6 +55,8 @@ ng serve
 # A aplicação estará disponível na URL http://localhost:4200/
 ```
 
+![](/Users/ortegavan/Documents/git/recipes/public/terminalizer.gif)
+
 ## 📌 Informações adicionais
 
 ### Backend
