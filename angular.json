@@ -48,10 +48,10 @@
                             "extractLicenses": false,
                             "sourceMap": true,
                             "fileReplacements": [
-                              {
-                                "replace": "src/environments/environment.ts",
-                                "with": "src/environments/environment.development.ts"
-                              }
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.development.ts"
+                                }
                             ]
                         }
                     },
@@ -84,7 +84,9 @@
                             }
                         ],
                         "styles": ["src/styles.css"],
-                        "scripts": []
+                        "scripts": [],
+                        "codeCoverage": true,
+                        "karmaConfig": "karma.conf.js"
                     }
                 }
             }
