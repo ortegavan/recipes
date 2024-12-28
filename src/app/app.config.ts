@@ -1,5 +1,9 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter, withComponentInputBinding } from '@angular/router';
+import {
+    provideRouter,
+    withComponentInputBinding,
+    withHashLocation,
+} from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import Lara from '@primeng/themes/lara';
@@ -10,7 +14,7 @@ import { authInterceptor } from './auth/data/auth.interceptor';
 export const appConfig: ApplicationConfig = {
     providers: [
         provideZoneChangeDetection({ eventCoalescing: true }),
-        provideRouter(routes, withComponentInputBinding()),
+        provideRouter(routes, withHashLocation(), withComponentInputBinding()),
         provideAnimationsAsync(),
         providePrimeNG({
             theme: {
