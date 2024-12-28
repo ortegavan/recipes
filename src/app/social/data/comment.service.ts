@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Comment } from './comment.model';
 
@@ -20,7 +20,13 @@ export class CommentService {
                     recipeId,
                 },
             })
-            .pipe(tap((comments) => this.comments.set(comments)));
+            .pipe(
+                catchError(() => {
+                    this.comments.set([]);
+                    return [];
+                }),
+                tap((comments) => this.comments.set(comments)),
+            );
     }
 
     public add(comment: Comment): Observable<Comment> {
