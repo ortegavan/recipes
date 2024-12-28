@@ -27,11 +27,6 @@ jobs:
             - name: Install dependencies
               run: npm install
 
-            - name: Test Git remote
-              run: git remote -v && git push --dry-run
-              env:
-                  GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
             - name: Run Semantic Release
               env:
                   GH_TOKEN: ${{ secrets.GH_TOKEN }}
