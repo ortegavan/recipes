@@ -42,3 +42,4 @@ demo.yml
 .DS_Store
 Thumbs.db
 .vercel
+.releaserc.js
