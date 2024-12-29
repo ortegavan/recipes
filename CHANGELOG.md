@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/ortegavan/recipes/compare/v1.0.0...v1.1.0) (2024-12-29)
+
+
+### Features
+
+* teste da semantic release ([1000f03](https://github.com/ortegavan/recipes/commit/1000f03ea73561287bb8151bf43ab8dfc1d8ac55))
+
 # 1.0.0 (2024-12-28)
 
 
