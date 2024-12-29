@@ -1,9 +1,10 @@
 ![](./public/banner-readme.jpg)
 
 <p align="center">
+    <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/ortegavan/recipes/release.yml">
+    <img alt="Sonar Quality Gate" src="https://img.shields.io/sonar/quality_gate/ortegavan_recipes?server=https%3A%2F%2Fsonarcloud.io">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/ortegavan/recipes">
     <img alt="GitHub Tag" src="https://img.shields.io/github/v/tag/ortegavan/recipes">
-    <img alt="Static Badge" src="https://img.shields.io/badge/code_style-prettier-brightgreen">
 </p>
 
 **My Recipe Book** é uma rede social para amantes da culinária. Os usuários podem:
@@ -20,7 +21,7 @@ Esta aplicação foi projetada para estudar e aplicar conceitos e artefatos de *
 - TypeScript 5.6;
 - Tudo standalone!
 
-Se você gostou desde repositório, clique na estrela! ⭐
+Se você gostou deste repositório, clique na estrela! ⭐
 
 ## 🚀 Configuração do projeto
 
