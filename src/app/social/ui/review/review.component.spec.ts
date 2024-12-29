@@ -3,7 +3,6 @@ import { ReviewComponent } from './review.component';
 import { RatingModule } from 'primeng/rating';
 import { ButtonModule } from 'primeng/button';
 import { mockComments } from '../../data/comments.mock';
-import { By } from '@angular/platform-browser';
 
 describe('ReviewComponent', () => {
     let component: ReviewComponent;
