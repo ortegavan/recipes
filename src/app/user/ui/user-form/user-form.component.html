@@ -1,0 +1,46 @@
+<form [formGroup]="form()" (ngSubmit)="saveEvent.emit(form())">
+    <section class="container">
+        <h2>Meus dados pessoais</h2>
+        <div>
+            <label for="name">Nome</label>
+            <input id="name" type="text" pInputText formControlName="name" />
+            @if (name?.touched && name?.hasError('required')) {
+                <span class="error">Você precisa informar seu nome</span>
+            }
+        </div>
+        <div>
+            <label for="email">E-mail</label>
+            <input id="email" type="text" pInputText formControlName="email" />
+            @if (email?.invalid && email?.touched) {
+                @if (email?.hasError('required')) {
+                    <span class="error">Você precisa informar seu e-mail</span>
+                }
+                @if (email?.hasError('email')) {
+                    <span class="error">O e-mail informado é inválido</span>
+                }
+            }
+        </div>
+        <div>
+            <label for="birthday">Data de nascimento</label>
+            <p-datepicker
+                id="birthday"
+                [iconDisplay]="'input'"
+                [showIcon]="true"
+                inputId="birthday"
+                formControlName="birthday"
+                dateFormat="dd/mm/yy"
+            />
+            @if (birthday?.touched && birthday?.hasError('required')) {
+                <span class="error"
+                    >Você precisa informar a data de seu nascimento</span
+                >
+            }
+        </div>
+        <p-button
+            type="submit"
+            label="Atualizar dados"
+            icon="pi pi-check"
+            iconPos="right"
+        />
+    </section>
+</form>

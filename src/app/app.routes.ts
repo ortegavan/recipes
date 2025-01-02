@@ -38,7 +38,7 @@ export const routes: Routes = [
     {
         path: 'minha-conta',
         loadComponent: () =>
-            import('./auth/feature/user-account/user-account.component').then(
+            import('./user/feature/user-account/user-account.component').then(
                 (c) => c.UserAccountComponent,
             ),
         canActivate: [authGuard],

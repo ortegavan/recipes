@@ -18,8 +18,3 @@ div {
 .ng-touched .ng-invalid {
     border: solid 2px #f95774;
 }
-
-.error {
-    color: #f95774;
-    font-size: 14px;
-}

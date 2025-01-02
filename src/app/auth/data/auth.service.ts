@@ -35,6 +35,11 @@ export class AuthService {
         return payload ? payload.name : '';
     }
 
+    public getId(): string {
+        const payload = this.getPayload();
+        return payload ? payload.sub : '';
+    }
+
     private getPayload(): any {
         const token = localStorage.getItem('token');
         if (!token) return null;

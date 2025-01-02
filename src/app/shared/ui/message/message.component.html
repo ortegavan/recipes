@@ -1,0 +1,7 @@
+@if (type() != 'none') {
+    <section class="container message">
+        <p-message [severity]="type()" closable>
+            {{ message() }}
+        </p-message>
+    </section>
+}
