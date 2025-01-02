@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/ortegavan/recipes/compare/v1.0.0...v1.1.0) (2025-01-02)
+
+
+### Features
+
+* implementa 'minha conta' ([fd486e1](https://github.com/ortegavan/recipes/commit/fd486e11de83d78b4c8df0f9c0d8597253c40e24))
+
 # 1.0.0 (2024-12-29)
 
 ### Bug Fixes
