@@ -52,6 +52,15 @@ describe('AuthService', () => {
         expect(service.getUsername()).toBe('');
     });
 
+    it('deve retornar o id do usuário a partir do token', () => {
+        localStorage.setItem('token', mockSession[0].token);
+        expect(service.getId()).toBe('123456');
+    });
+
+    it('deve retornar string vazia se o token não existe', () => {
+        expect(service.getId()).toBe('');
+    });
+
     it('deve retornar true se o token for válido', () => {
         localStorage.setItem('token', mockSession[0].token);
         expect(service.isAuthenticated()).toBeTrue();

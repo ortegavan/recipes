@@ -6,6 +6,7 @@ import Lara from '@primeng/themes/lara';
 import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from './auth/data/auth.interceptor';
+import { translation } from './translation';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -19,6 +20,7 @@ export const appConfig: ApplicationConfig = {
                     darkModeSelector: '.dark-side',
                 },
             },
+            translation: translation,
         }),
         provideHttpClient(withInterceptors([authInterceptor])),
     ],

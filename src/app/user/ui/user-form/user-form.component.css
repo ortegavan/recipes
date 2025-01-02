@@ -1,0 +1,19 @@
+h2 {
+    margin-top: 32px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+section > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+input {
+    width: 50%;
+}

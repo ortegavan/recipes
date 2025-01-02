@@ -16,7 +16,7 @@
 }
 
 .container {
-    margin: 0 auto;
+    margin: auto;
     width: 100%;
     max-width: 1200px;
 }
@@ -77,4 +77,9 @@ small {
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+
+.error {
+    color: #f95774;
+    font-size: 14px;
 }
