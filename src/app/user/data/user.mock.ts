@@ -8,6 +8,6 @@ export const mockUser: User = {
     name: 'Teste',
     email: 'teste@teste.com',
     birthday: new Date(),
-    password: '123456',
+    password: '',
     session: mockSession[0],
 };
