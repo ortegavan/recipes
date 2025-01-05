@@ -1,0 +1,9 @@
+section,
+section > div {
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    gap: 16px;
+}

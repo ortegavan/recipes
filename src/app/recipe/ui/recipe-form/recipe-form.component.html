@@ -1,0 +1,59 @@
+<form [formGroup]="form()" (ngSubmit)="saveEvent.emit(form())">
+    <section>
+        <div>
+            <label for="name">Nome da receita</label>
+            <input id="name" type="text" pInputText formControlName="name" />
+        </div>
+        <div>
+            <label for="description">Descrição</label>
+            <input
+                id="description"
+                type="text"
+                pInputText
+                formControlName="description"
+            />
+        </div>
+        <div>
+            <label for="imagePath">Foto</label>
+            <input
+                id="imagePath"
+                type="text"
+                pInputText
+                formControlName="imagePath"
+            />
+        </div>
+        <div>
+            <label for="categoryIds">Categorias</label>
+            <p-multiselect
+                id="categoryIds"
+                [options]="categories()"
+                formControlName="categoryIds"
+                optionLabel="name"
+                optionValue="id"
+                placeholder="Escolha"
+            />
+        </div>
+        <div>
+            <label for="ingredients">Ingredientes</label>
+            <textarea
+                rows="7"
+                pTextarea
+                formControlName="ingredients"
+            ></textarea>
+        </div>
+        <div>
+            <label for="instructions">Modo de preparo</label>
+            <textarea
+                rows="7"
+                pTextarea
+                formControlName="instructions"
+            ></textarea>
+        </div>
+        <p-button
+            type="submit"
+            label="Salvar receita"
+            icon="pi pi-check"
+            iconPos="right"
+        />
+    </section>
+</form>

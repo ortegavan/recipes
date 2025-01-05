@@ -1,0 +1,45 @@
+<section class="container">
+    <div class="header">
+        <h2>Minhas receitas</h2>
+        <p-button label="Criar nova receita" (onClick)="newEvent.emit()" />
+    </div>
+
+    <p-table [value]="recipes()">
+        <ng-template #header>
+            <tr>
+                <th id="title">Título da receita</th>
+                <th id="image">Foto</th>
+                <th id="categories">Categorias</th>
+                <th id="actions"></th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-recipe>
+            <tr>
+                <td>{{ recipe.name }}</td>
+                <td>
+                    <img [src]="recipe.imagePath" alt="{{ recipe.name }}" />
+                </td>
+                <td>
+                    {{ recipe.categoryIds | categoryName: categories() }}
+                </td>
+                <td>
+                    <div class="actions">
+                        <p-button
+                            icon="pi pi-eye"
+                            (onClick)="viewEvent.emit(recipe.id)"
+                        />
+                        <p-button
+                            icon="pi pi-file-edit"
+                            (onClick)="editEvent.emit(recipe.id)"
+                        />
+                        <p-button
+                            icon="pi pi-trash"
+                            severity="danger"
+                            (onClick)="deleteEvent.emit(recipe.id)"
+                        />
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</section>

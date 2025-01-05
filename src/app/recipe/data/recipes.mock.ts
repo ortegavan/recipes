@@ -28,6 +28,7 @@ export const mockRecipes: Recipe[] = [
             'Sirva com queijo parmesão ralado por cima.',
         ],
         new: false,
+        userId: '123456',
     },
     {
         id: '2',
@@ -54,5 +55,6 @@ export const mockRecipes: Recipe[] = [
             'Sirva imediatamente.',
         ],
         new: true,
+        userId: '123456',
     },
 ];
