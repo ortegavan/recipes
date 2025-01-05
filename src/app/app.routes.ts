@@ -28,6 +28,20 @@ export const routes: Routes = [
         canActivate: [authGuard],
     },
     {
+        path: 'edicao-de-receita',
+        loadComponent: () =>
+            import('./recipe/feature/recipe-edit/recipe-edit.component').then(
+                (c) => c.RecipeEditComponent,
+            ),
+    },
+    {
+        path: 'edicao-de-receita/:id',
+        loadComponent: () =>
+            import('./recipe/feature/recipe-edit/recipe-edit.component').then(
+                (c) => c.RecipeEditComponent,
+            ),
+    },
+    {
         path: 'favoritos',
         loadComponent: () =>
             import('./recipe/feature/favorites/favorites.component').then(

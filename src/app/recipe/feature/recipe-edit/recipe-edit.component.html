@@ -1,0 +1,10 @@
+<app-banner />
+<section class="container">
+    <h2>Edição de receita</h2>
+    <app-recipe-form
+        [form]="form"
+        [categories]="(categories$ | async) ?? []"
+        (saveEvent)="save($event)"
+    />
+    <app-message [message]="message" [type]="returnType" />
+</section>

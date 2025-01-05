@@ -1,0 +1,22 @@
+h2 {
+    margin: 0;
+}
+
+img {
+    width: 120px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 32px 0;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
