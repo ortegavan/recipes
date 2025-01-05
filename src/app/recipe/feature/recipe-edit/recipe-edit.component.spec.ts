@@ -75,7 +75,7 @@ describe('RecipeEditComponent', () => {
             name: 'Teste',
             description: 'Teste',
             categoryIds: ['1'],
-            imagePath: 'http://teste.com',
+            imagePath: 'https://teste.com',
             ingredients: 'Teste',
             instructions: 'Teste',
         });
@@ -91,7 +91,7 @@ describe('RecipeEditComponent', () => {
             name: 'Teste',
             description: 'Teste',
             categoryIds: ['1'],
-            imagePath: 'http://teste.com',
+            imagePath: 'https://teste.com',
             ingredients: 'Teste',
             instructions: 'Teste',
         });
@@ -109,7 +109,7 @@ describe('RecipeEditComponent', () => {
             name: 'Teste',
             description: 'Teste',
             categoryIds: ['1'],
-            imagePath: 'http://teste.com',
+            imagePath: 'https://teste.com',
             ingredients: 'Teste',
             instructions: 'Teste',
         });
@@ -134,7 +134,7 @@ describe('RecipeEditComponent', () => {
             name: 'Teste',
             description: 'Teste',
             categoryIds: ['1'],
-            imagePath: 'http://teste.com',
+            imagePath: 'https://teste.com',
             ingredients: 'Teste',
             instructions: 'Teste',
         });
