@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/ortegavan/recipes/compare/v1.1.0...v1.2.0) (2025-01-05)
+
+
+### Bug Fixes
+
+* ajusta itens apontados pelo sonar ([a37a5dc](https://github.com/ortegavan/recipes/commit/a37a5dcdbf453a34eda4bd030f41bc8b89fd6a74))
+
+
+### Features
+
+* implementa 'minhas receitas' ([0e06ec2](https://github.com/ortegavan/recipes/commit/0e06ec2f2dbb6b0f945d484bdde0b64c8a86c5e6))
+
 # [1.1.0](https://github.com/ortegavan/recipes/compare/v1.0.0...v1.1.0) (2025-01-02)
 
 
