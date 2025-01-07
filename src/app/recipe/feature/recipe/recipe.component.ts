@@ -1,6 +1,6 @@
 import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { RecipeService } from '../../data/recipe.service';
-import { first, Observable } from 'rxjs';
+import { first, map, mergeMap, Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { RecipeDetailComponent } from '../../ui/recipe-detail/recipe-detail.component';
 import { Recipe } from '../../data/recipe.model';
@@ -10,6 +10,9 @@ import { Comment } from '../../../social/data/comment.model';
 import { CommentsComponent } from '../../../social/ui/comments/comments.component';
 import { ReviewComponent } from '../../../social/ui/review/review.component';
 import { RatingFormComponent } from '../../../social/ui/rating-form/rating-form.component';
+import { FavoriteService } from '../../../social/data/favorite.service';
+import { AuthService } from '../../../auth/data/auth.service';
+import { Favorite } from '../../../social/data/favorite.model';
 
 @Component({
     selector: 'app-recipe',
@@ -28,9 +31,12 @@ export class RecipeComponent implements OnInit {
 
     recipeService = inject(RecipeService);
     commentService = inject(CommentService);
+    favoriteService = inject(FavoriteService);
+    authService = inject(AuthService);
     fb = inject(FormBuilder);
 
     recipe$!: Observable<Recipe>;
+    favorite$!: Observable<boolean>;
     comments = this.commentService.comments;
 
     ratingForm = this.fb.group({
@@ -47,6 +53,10 @@ export class RecipeComponent implements OnInit {
             .get(id ?? '')
             .pipe(first())
             .subscribe();
+
+        this.favorite$ = this.favoriteService
+            .getByUserIdAndRecipeId(this.authService.getId(), id ?? '')
+            .pipe(map((favorites) => favorites.length > 0));
     }
 
     addComment(form: FormGroup) {
@@ -56,6 +66,7 @@ export class RecipeComponent implements OnInit {
         }
 
         const comment = {
+            id: '',
             createdAt: new Date(),
             recipeId: this.id(),
             userId: '123456',
@@ -73,5 +84,34 @@ export class RecipeComponent implements OnInit {
 
     closeRatingForm() {
         this.showRatingForm.set(false);
+    }
+
+    favorite(id: string) {
+        const favorite = {
+            id: '',
+            userId: this.authService.getId(),
+            recipeId: id,
+        } as Favorite;
+
+        this.favorite$ = this.favoriteService.add(favorite).pipe(
+            mergeMap(() =>
+                this.favoriteService.getByUserIdAndRecipeId(
+                    favorite.userId,
+                    favorite.recipeId,
+                ),
+            ),
+            map((favorites) => favorites.length > 0),
+        );
+    }
+
+    unfavorite(id: string) {
+        this.favorite$ = this.favoriteService
+            .getByUserIdAndRecipeId(this.authService.getId(), id)
+            .pipe(
+                mergeMap((favorites) =>
+                    this.favoriteService.delete(favorites[0].id),
+                ),
+                map(() => false),
+            );
     }
 }

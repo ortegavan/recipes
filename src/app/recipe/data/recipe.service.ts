@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { map, Observable } from 'rxjs';
+import { catchError, map, mergeMap, Observable } from 'rxjs';
 import { Recipe } from './recipe.model';
+import { Favorite } from '../../social/data/favorite.model';
 
 @Injectable({
     providedIn: 'root',
@@ -34,6 +35,29 @@ export class RecipeService {
         );
     }
 
+    public getFavorites(userId: string): Observable<Recipe[]> {
+        return this.httpClient
+            .get<Favorite[]>(`${this.apiBaseUrl}/api/v1/favorites`, {
+                params: { userId },
+            })
+            .pipe(
+                map((favorites) => {
+                    return favorites.map((fav) => fav.recipeId);
+                }),
+                mergeMap((recipeIds) => {
+                    return this.httpClient.get<Recipe[]>(
+                        `${this.apiBaseUrl}/api/v1/recipes`,
+                        {
+                            params: {
+                                id: `[${recipeIds.join(',')}]`,
+                            },
+                        },
+                    );
+                }),
+                catchError(() => []),
+            );
+    }
+
     public search(search: string): Observable<Recipe[]> {
         return this.httpClient.get<Recipe[]>(
             `${this.apiBaseUrl}/api/v1/recipes`,
@@ -52,9 +76,9 @@ export class RecipeService {
         );
     }
 
-    public update(id: string, recipe: Recipe): Observable<Recipe> {
+    public update(recipe: Recipe): Observable<Recipe> {
         return this.httpClient.put<Recipe>(
-            `${this.apiBaseUrl}/api/v1/recipes/${id}`,
+            `${this.apiBaseUrl}/api/v1/recipes/${recipe.id}`,
             recipe,
         );
     }

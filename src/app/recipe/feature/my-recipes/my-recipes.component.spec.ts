@@ -95,7 +95,7 @@ describe('MyRecipesComponent', () => {
         );
         component.delete('1');
         expect(fakeRecipeService.delete).toHaveBeenCalled();
-        component.recipes$.subscribe((x: any) => {
+        component.recipes$.subscribe(() => {
             expect(fakeRecipeService.getByUserId).toHaveBeenCalled();
             done();
         });

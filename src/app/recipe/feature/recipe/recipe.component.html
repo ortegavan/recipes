@@ -1,5 +1,10 @@
 @if (recipe$ | async; as recipe) {
-    <app-recipe-detail [recipe]="recipe" />
+    <app-recipe-detail
+        [recipe]="recipe"
+        [favorite]="(favorite$ | async) ?? false"
+        (favoriteEvent)="favorite($event)"
+        (unfavoriteEvent)="unfavorite($event)"
+    />
 }
 
 <section class="container">

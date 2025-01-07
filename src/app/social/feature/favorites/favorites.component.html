@@ -1,13 +1,10 @@
 <app-banner />
 <app-recipe-table
-    [recipes]="(recipes$ | async) ?? []"
+    [recipes]="(favorites$ | async) ?? []"
     [categories]="(categories$ | async) ?? []"
-    [actions]="actions"
     (viewEvent)="view($event)"
-    (newEvent)="add()"
-    (editEvent)="edit($event)"
     (deleteEvent)="delete($event)"
 >
-    Minhas receitas
+    Meus favoritos
 </app-recipe-table>
 <p-confirmdialog />

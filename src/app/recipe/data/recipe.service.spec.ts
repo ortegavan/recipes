@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { RecipeService } from './recipe.service';
 import { provideHttpClient } from '@angular/common/http';
 import {
@@ -7,6 +7,7 @@ import {
 } from '@angular/common/http/testing';
 import { environment } from '../../../environments/environment';
 import { mockRecipes } from './recipes.mock';
+import { Recipe } from './recipe.model';
 
 describe('RecipeService', () => {
     let service: RecipeService;
@@ -95,7 +96,7 @@ describe('RecipeService', () => {
         const recipe = mockRecipes[0];
         const recipeId = recipe.id;
 
-        service.update(recipeId, recipe).subscribe((recipeResponse) => {
+        service.update(recipe).subscribe((recipeResponse) => {
             expect(recipeResponse).toEqual(recipe);
             done();
         });
@@ -122,4 +123,49 @@ describe('RecipeService', () => {
         expect(req.request.method).toEqual('DELETE');
         req.flush(null);
     });
+
+    it('deve retornar as receitas favoritas do usuário', (done) => {
+        const mockFavorites = [
+            { id: '1', userId: '123', recipeId: '10' },
+            { id: '2', userId: '123', recipeId: '20' },
+        ];
+
+        service.getFavorites('123').subscribe((recipes) => {
+            expect(recipes).toEqual(mockRecipes);
+            done();
+        });
+
+        let req = controller.expectOne(
+            `${apiBaseUrl}/api/v1/favorites?userId=123`,
+        );
+        expect(req.request.method).toEqual('GET');
+        req.flush(mockFavorites);
+
+        req = controller.expectOne(
+            `${apiBaseUrl}/api/v1/recipes?id=%5B10,20%5D`,
+        );
+        expect(req.request.method).toEqual('GET');
+        req.flush(mockRecipes);
+    });
+
+    it('deve retornar um array vazio em caso de erro na API', fakeAsync(() => {
+        let result: Recipe[] | undefined;
+
+        service.getFavorites('123').subscribe((recipes) => {
+            result = recipes;
+        });
+
+        const req = controller.expectOne(
+            `${apiBaseUrl}/api/v1/favorites?userId=123`,
+        );
+        expect(req.request.method).toEqual('GET');
+
+        req.flush(null, {
+            status: 500,
+            statusText: 'Internal Server Error',
+        });
+
+        tick();
+        expect(result).toEqual(undefined);
+    }));
 });
