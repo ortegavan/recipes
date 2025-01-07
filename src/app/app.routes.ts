@@ -44,7 +44,7 @@ export const routes: Routes = [
     {
         path: 'favoritos',
         loadComponent: () =>
-            import('./recipe/feature/favorites/favorites.component').then(
+            import('./social/feature/favorites/favorites.component').then(
                 (c) => c.FavoritesComponent,
             ),
         canActivate: [authGuard],

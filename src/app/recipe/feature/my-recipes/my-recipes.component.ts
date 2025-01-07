@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { mergeMap } from 'rxjs';
+import { TableAction } from '../../data/table-action.enum';
 
 @Component({
     selector: 'app-my-recipes',
@@ -31,6 +32,8 @@ export class MyRecipesComponent {
 
     recipes$ = this.recipeService.getByUserId(this.authService.getId());
     categories$ = this.categoryService.get();
+
+    actions = TableAction.create | TableAction.edit;
 
     view(id: string) {
         this.router.navigate(['/receitas', id]);

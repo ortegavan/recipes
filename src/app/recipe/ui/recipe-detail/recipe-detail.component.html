@@ -6,6 +6,22 @@
     <section class="center">
         <h1>{{ recipe.name }}</h1>
         <small>{{ recipe.description }}</small>
+        @if (favorite()) {
+            <p-button
+                label="Favoritado!"
+                icon="pi pi-heart-fill"
+                iconPos="right"
+                variant="outlined"
+                (onClick)="unfavoriteEvent.emit(recipe.id)"
+            />
+        } @else {
+            <p-button
+                label="Favoritar"
+                icon="pi pi-heart"
+                iconPos="right"
+                (onClick)="favoriteEvent.emit(recipe.id)"
+            />
+        }
     </section>
 
     <section class="container detail">

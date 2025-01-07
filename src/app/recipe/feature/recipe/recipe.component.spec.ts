@@ -79,4 +79,43 @@ describe('RecipeComponent', () => {
         expect(form.markAllAsTouched).toHaveBeenCalled();
         expect(spy).not.toHaveBeenCalled();
     });
+
+    it('deve favoritar uma receita', () => {
+        const recipeId = '123';
+        const mockFavoriteResponse = {
+            id: '1',
+            recipeId,
+            userId: 'mockUserId',
+        };
+
+        const spy = spyOn(component['favoriteService'], 'add').and.returnValue(
+            of(mockFavoriteResponse),
+        );
+        component.favorite(recipeId);
+        component.favorite$.subscribe((isFavorite) => {
+            expect(isFavorite).toBeTrue();
+        });
+
+        expect(spy).toHaveBeenCalled();
+    });
+
+    it('deve desfavoritar uma receita', () => {
+        const mockFavoriteResponse = {
+            id: '1',
+            recipeId: '123',
+            userId: 'mockUserId',
+        };
+
+        const spy = spyOn(
+            component['favoriteService'],
+            'getByUserIdAndRecipeId',
+        ).and.returnValue(of([mockFavoriteResponse]));
+
+        component.unfavorite('1');
+        component.favorite$.subscribe((isFavorite) => {
+            expect(isFavorite).toBeFalse();
+        });
+
+        expect(spy).toHaveBeenCalled();
+    });
 });

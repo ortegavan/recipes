@@ -76,6 +76,7 @@ export class RecipeEditComponent implements OnInit {
     save(form: FormGroup) {
         const id = this.id();
         const recipe = {
+            id: '',
             name: form.value.name,
             description: form.value.description,
             categoryIds: form.value.categoryIds,
@@ -86,7 +87,8 @@ export class RecipeEditComponent implements OnInit {
         } as Recipe;
 
         if (id) {
-            this.recipeService.update(id, recipe).subscribe({
+            recipe.id = id;
+            this.recipeService.update(recipe).subscribe({
                 next: () => {
                     this.message = this.messageOk;
                     this.returnType = MessageType.success;
