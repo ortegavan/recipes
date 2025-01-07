@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/ortegavan/recipes/compare/v1.2.0...v1.3.0) (2025-01-07)
+
+
+### Features
+
+* implementa 'meus favoritos' ([f625b28](https://github.com/ortegavan/recipes/commit/f625b281a7de1711334cdbb7c5ce39998642f54c))
+
 # [1.2.0](https://github.com/ortegavan/recipes/compare/v1.1.0...v1.2.0) (2025-01-05)
 
 
