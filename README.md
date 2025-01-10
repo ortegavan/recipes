@@ -99,4 +99,4 @@ A **responsividade não foi aplicada** no projeto porque não é um assunto triv
 
 - [Documentação oficial do Angular](https://angular.dev)
 - [Documentação oficial do PrimeNG](https://primeng.org)
-- Livro **Angular na prática: uma jornada do zero ao deploy** (aguarde!)
+- [Site do livro Angular na prática](https://angularnapratica.com.br)
